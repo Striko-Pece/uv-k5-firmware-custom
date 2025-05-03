@@ -64,6 +64,8 @@ https://github.com/kamilsss655/uv-k5-firmware-custom/assets/8842065/d0e931ba-90c
 
 Video of the NUNU Protocol enabling message hopping (available in v.21.0):
 
+https://github.com/user-attachments/assets/c9113fb5-de3a-47fe-88d5-c8b49d40b273
+
 https://github.com/kamilsss655/uv-k5-firmware-custom/assets/8842065/5392ce36-9308-4a54-a92c-a82474b4b0d5
 
 Video of the NUNU Protocol with 4 radios:
