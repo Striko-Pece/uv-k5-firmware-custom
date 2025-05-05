@@ -48,22 +48,6 @@ const freq_band_table_t frequencyBandTable[7] =
 	#endif
 };
 
-#ifdef ENABLE_NOAA
-	const uint32_t NoaaFrequencyTable[10] =
-	{
-		16255000,
-		16240000,
-		16247500,
-		16242500,
-		16245000,
-		16250000,
-		16252500,
-		16152500,
-		16177500,
-		16327500
-	};
-#endif
-
 
 const uint16_t gStepFrequencyTable[] = {
 	250, 500, 625, 1000, 1250, 2500, 833,
