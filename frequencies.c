@@ -155,67 +155,7 @@ int TX_freq_check(const uint32_t Frequency)
 	if (Frequency >= BX4819_band1.upper && Frequency < BX4819_band2.lower)
 		return -1;  // BX chip does not work in this range
 
-	switch (gSetting_F_LOCK)
-	{
-		case F_LOCK_DEF:
-			if (Frequency >= frequencyBandTable[BAND3_137MHz].lower && Frequency < frequencyBandTable[BAND3_137MHz].upper)
-				return 0;
-			if (Frequency >= frequencyBandTable[BAND4_174MHz].lower && Frequency < frequencyBandTable[BAND4_174MHz].upper)
-				if (gSetting_200TX)
-					return 0;
-			if (Frequency >= frequencyBandTable[BAND5_350MHz].lower && Frequency < frequencyBandTable[BAND5_350MHz].upper)
-				if (gSetting_350TX && gSetting_350EN)
-					return 0;
-			if (Frequency >= frequencyBandTable[BAND6_400MHz].lower && Frequency < frequencyBandTable[BAND6_400MHz].upper)
-				return 0;
-			if (Frequency >= frequencyBandTable[BAND7_470MHz].lower && Frequency <= 60000000)
-				if (gSetting_500TX)
-					return 0;
-			break;
 
-		case F_LOCK_FCC:
-			if (Frequency >= 14400000 && Frequency < 14800000)
-				return 0;
-			if (Frequency >= 42000000 && Frequency < 45000000)
-				return 0;
-			break;
-
-		case F_LOCK_CE:
-			if (Frequency >= 14400000 && Frequency < 14600000)
-				return 0;
-			if (Frequency >= 43000000 && Frequency < 44000000)
-				return 0;
-			break;
-
-		case F_LOCK_GB:
-			if (Frequency >= 14400000 && Frequency < 14800000)
-				return 0;
-			if (Frequency >= 43000000 && Frequency < 44000000)
-				return 0;
-			break;
-
-		case F_LOCK_430:
-			if (Frequency >= frequencyBandTable[BAND3_137MHz].lower && Frequency < 17400000)
-				return 0;
-			if (Frequency >= 40000000 && Frequency < 43000000)
-				return 0;
-			break;
-
-		case F_LOCK_438:
-			if (Frequency >= frequencyBandTable[BAND3_137MHz].lower && Frequency < 17400000)
-				return 0;
-			if (Frequency >= 40000000 && Frequency < 43800000)
-				return 0;
-			break;
-
-		case F_LOCK_PMR:
-			if (Frequency >= 44600625 && Frequency <= 44619375)
-				return 0;
-			break;
-
-		case F_LOCK_ALL:
-			break;
-	}
 
 	// dis-allowed TX frequency
 	return -1;
@@ -223,14 +163,6 @@ int TX_freq_check(const uint32_t Frequency)
 
 int RX_freq_check(const uint32_t Frequency)
 {	// return '0' if RX frequency is allowed
-	// otherwise return '-1'
-
-	if (Frequency < RX_freq_min() || Frequency > frequencyBandTable[ARRAY_SIZE(frequencyBandTable) - 1].upper)
-		return -1;
-
-	if (Frequency >= BX4819_band1.upper && Frequency < BX4819_band2.lower)
-		return -1;
-
 	return 0;   // OK frequency
 }
 
